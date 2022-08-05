@@ -1,54 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind apply;
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./font/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto-thin";
+  src: url("./font/Roboto/Roboto-Thin.ttf");
+}
+
+html {
+  font-family: "Roboto";
+}
+
+@media (max-width: 830px) {
+  .nav-header__logo {
+    @apply hidden;
+  }
+}
 
 @layer components {
-    #__next {
-        @apply max-w-7xl m-auto px-5;
-    }
+  #__next {
+    @apply max-w-7xl m-auto p-0 sm:px-5;
+  }
 
-    .nav-header {
-        @apply flex justify-between items-center space-x-4 h-16 bg-white text-slate-500 relative w-full;
-    }
+  .nav-header {
+    @apply flex justify-between items-center h-16 bg-white text-slate-500 relative w-full;
+  }
 
-    .nav-header__wrapper {
-        @apply flex z-10;
-    }
+  .nav-header__wrapper {
+    @apply flex z-10;
+  }
 
-    .nav-header__item {
-        @apply p-2 hover:text-blue-600 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600 hover:decoration-2;
-    }
+  .nav-header__item {
+    @apply p-2 hover:text-blue-600 hover:cursor-pointer hover:underline hover:underline-offset-8 hover:decoration-blue-600 hover:decoration-2;
+  }
 
-    .nav-header__logo {
-        @apply pt-6 absolute w-full m-0 flex justify-center items-center;
-    }
+  .nav-header__item:first-child {
+    @apply pl-0;
+  }
 
-    .nav-header__logo-inside {
-        @apply cursor-pointer;
-    }
+  .nav-header__logo {
+    @apply pt-6 absolute w-full m-0 flex justify-center items-center;
+  }
 
-    .nav-header__search {
-        @apply relative block flex items-center;
-    }
+  .nav-header__logo-inside {
+    @apply cursor-pointer;
+  }
 
-    .nav-header__search-input {
-        @apply placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-sm;
-    }
-    
-    .nav-header__search-cart {
-        @apply ml-3;
-    }
+  .nav-header__search {
+    @apply relative block flex items-center;
+  }
 
-    .nav-header__search-cart-count {
-        @apply mr-3;
-    }
+  .nav-header__search-input {
+    @apply placeholder:text-slate-400 block bg-white w-full outline-none border-none py-2 pl-3 pr-3 text-sm;
+  }
 
-    .nav-header__profile-wrapper {
-        @apply h-12 w-12 flex justify-center items-center rounded-full;
-    }
-
-    .nav-header__profile-image {
-        @apply rounded-full;
-    }
+  .nav-header__search-cart-wrapper {
+    @apply cursor-pointer z-10 flex;
+  }
 }
