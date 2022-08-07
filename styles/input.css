@@ -24,7 +24,7 @@ html {
 
 @layer components {
   #__next {
-    @apply max-w-7xl m-auto p-0 sm:px-5;
+    @apply max-w-7xl m-auto px-3.5 sm:px-5;
   }
 
   .nav-header {

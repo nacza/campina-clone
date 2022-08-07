@@ -10,3 +10,15 @@
 .swiper-button-prev::after {
   font-size: 1rem !important;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+@media (min-width: 640px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex !important;
+  }
+}
