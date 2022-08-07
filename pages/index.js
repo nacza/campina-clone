@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 import React, { useState } from "react";
 import Image from "next/image";
 import { IoSearchOutline, IoCartOutline, IoMenuSharp } from "react-icons/io5";
@@ -9,9 +8,6 @@ import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// CSS Module
-import "../styles/Home.module.css";
 
 export default function Home() {
   const [focusSearch, setFocusSearch] = useState(false);
