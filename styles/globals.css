@@ -881,6 +881,10 @@ video {
   padding-right: 1.25rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -932,6 +936,14 @@ html {
 
   .sm\:mt-6 {
     margin-top: 1.5rem;
+  }
+
+  .sm\:ml-3 {
+    margin-left: 0.75rem;
+  }
+
+  .sm\:ml-2 {
+    margin-left: 0.5rem;
   }
 
   .sm\:flex {

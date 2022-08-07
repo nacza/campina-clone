@@ -69,7 +69,7 @@ export default function Home() {
             <IoCartOutline className="nav-header__search-cart" size={25} />
           </div>
 
-          <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex">
+          <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
             <div className="w-[40px] h-[40px] flex justify-center items-center">
               <img className="rounded-full" src="" alt="NA" />
             </div>
