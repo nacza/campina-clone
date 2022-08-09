@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { IoSearchOutline, IoCartOutline, IoMenuSharp } from "react-icons/io5";
+import {
+  IoSearchOutline,
+  IoCartOutline,
+  IoMenuSharp,
+  IoAppsOutline,
+} from "react-icons/io5";
 
 // Slideshow
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper";
+import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/free-mode";
 
 export default function Home() {
   const [focusSearch, setFocusSearch] = useState(false);
@@ -82,10 +88,10 @@ export default function Home() {
         <Swiper
           navigation={true}
           loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 7000,
+          //   disableOnInteraction: false,
+          // }}
           pagination={{
             clickable: true,
           }}
@@ -100,6 +106,133 @@ export default function Home() {
           <SwiperSlide>
             <div className="w-full h-auto flex justify-center items-center relative">
               <img src="/slide-2.png" alt="slide-2.png" />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      {/* Linebreak Category */}
+      <div className="w-full min-h-full mt-5 md:mt-12">
+        <div className="w-full flex justify-center items-center text-slate-500">
+          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
+          <p className="text-lg mx-5 sm:mx-10">KATEGORI</p>
+          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
+        </div>
+      </div>
+
+      {/* Slider Subcategory */}
+      <div className="relative mt-5 overflow-hidden">
+        <Swiper
+          breakpoints={{
+            // when window width is >= 320px
+            320: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+          }}
+          freeMode={true}
+          navigation={true}
+          modules={[Navigation, FreeMode]}
+          className="mySwiper2 h-20 pr-4"
+        >
+          <SwiperSlide className="rounded cursor-pointer">
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <div className="h-[35px] w-[35px] relative">
+                <img
+                  className="absolute object-fill"
+                  src="/ice-category.png"
+                  alt="ct"
+                />
+              </div>
+              <div className="h-1.5"></div>
+              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+                Ice Cream Stick
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="rounded cursor-pointer">
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <div className="h-[35px] w-[35px] relative">
+                <img
+                  className="absolute object-fill"
+                  src="/ice-category.png"
+                  alt="ct"
+                />
+              </div>
+              <div className="h-1.5"></div>
+              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+                Ice Cream Package
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="rounded cursor-pointer">
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <div className="h-[35px] w-[35px] relative">
+                <img
+                  className="absolute object-fill"
+                  src="/ice-category.png"
+                  alt="ct"
+                />
+              </div>
+              <div className="h-1.5"></div>
+              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+                Ice Cream Stick
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="rounded cursor-pointer">
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <div className="h-[35px] w-[35px] relative">
+                <img
+                  className="absolute object-fill"
+                  src="/ice-category.png"
+                  alt="ct"
+                />
+              </div>
+              <div className="h-1.5"></div>
+              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+                Ice Cream Package
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="rounded cursor-pointer">
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <div className="h-[35px] w-[35px] relative">
+                <img
+                  className="absolute object-fill"
+                  src="/ice-category.png"
+                  alt="ct"
+                />
+              </div>
+              <div className="h-1.5"></div>
+              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+                Ice Cream Stick
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="rounded cursor-pointer">
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <div className="h-[35px] w-[35px] relative">
+                <img
+                  className="absolute object-fill"
+                  src="/ice-category.png"
+                  alt="ct"
+                />
+              </div>
+              <div className="h-1.5"></div>
+              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+                Ice Cream Package
+              </p>
             </div>
           </SwiperSlide>
         </Swiper>

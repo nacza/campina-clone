@@ -1,13 +1,27 @@
+.swiper-slide {
+  background-color: #e5e7eb;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   width: 40px !important;
   height: 40px !important;
-  background-color: white;
+  background-color: rgb(236, 242, 236);
+  border: 1px solid #d4d4d4;
   border-radius: 20px !important;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
+  font-size: 1rem !important;
+}
+
+.mySwiper2 {
+  padding-right: 2.5rem !important;
+}
+
+.mySwiper2 .swiper-button-next::after,
+.mySwiper2 .swiper-button-prev::after {
   font-size: 1rem !important;
 }
 
