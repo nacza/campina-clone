@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { IoIosFlash } from "react-icons/io";
 import {
   IoSearchOutline,
   IoCartOutline,
   IoMenuSharp,
-  IoAppsOutline,
+  IoArrowForward,
 } from "react-icons/io5";
 
 // Slideshow
@@ -29,7 +30,7 @@ export default function Home() {
   return (
     <>
       {/* Navbar */}
-      <nav className="nav-header">
+      <nav className="nav-header sticky top-0 z-20">
         <ul className="nav-header__wrapper hidden md:flex">
           <li className="nav-header__item">HOME</li>
           <li className="nav-header__item">PRODUK</li>
@@ -55,8 +56,8 @@ export default function Home() {
           <div
             className={
               focusSearch
-                ? "relative w-full flex justify-center items-center rounded-md overflow-hidden pr-5 border-2 duration-100 border-blue-300"
-                : "relative w-full flex justify-center items-center rounded-md overflow-hidden pr-5 border-2 duration-100"
+                ? "relative w-full flex justify-center items-center rounded-lg overflow-hidden pr-5 border-2 duration-100 border-blue-300"
+                : "relative w-full flex justify-center items-center rounded-lg overflow-hidden pr-5 border-2 duration-100"
             }
           >
             <input
@@ -99,144 +100,217 @@ export default function Home() {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="w-full h-auto flex justify-center items-center">
-              <img src="/slide-1.png" alt="slide-1.png" />
+            <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
+              <img
+                className="absolute sm:relative object-cover h-[100%]"
+                src="/slide-1.png"
+                alt="slide-1.png"
+              />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="w-full h-auto flex justify-center items-center relative">
-              <img src="/slide-2.png" alt="slide-2.png" />
+            <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
+              <img
+                className="absolute sm:relative object-cover h-[100%]"
+                src="/slide-2.png"
+                alt="slide-2.png"
+              />
             </div>
           </SwiperSlide>
         </Swiper>
       </div>
 
       {/* Linebreak Category */}
-      <div className="w-full min-h-full mt-5 md:mt-12">
+      <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
         <div className="w-full flex justify-center items-center text-slate-500">
           <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-          <p className="text-lg mx-5 sm:mx-10">KATEGORI</p>
+          <p className="md:text-lg mx-5 flex-none sm:mx-10">KATEGORI</p>
           <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
         </div>
       </div>
 
       {/* Slider Subcategory */}
-      <div className="relative mt-5 overflow-hidden">
+      <div className="relative overflow-hidden">
         <Swiper
           breakpoints={{
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
             // when window width is >= 320px
             320: {
               slidesPerView: 3,
               spaceBetween: 10,
             },
-            // when window width is >= 480px
-            480: {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
             // when window width is >= 640px
             640: {
               slidesPerView: 5,
-              spaceBetween: 10,
+              spaceBetween: 14,
             },
           }}
           freeMode={true}
           navigation={true}
           modules={[Navigation, FreeMode]}
-          className="mySwiper2 h-20 pr-4"
+          className="mySwiper2 h-20 sm:h-24 pr-4"
         >
-          <SwiperSlide className="rounded cursor-pointer">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <div className="h-[35px] w-[35px] relative">
+              <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
                   className="absolute object-fill"
-                  src="/ice-category.png"
+                  src="/ice-category-stick.png"
                   alt="ct"
                 />
               </div>
-              <div className="h-1.5"></div>
-              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+              <div className="h-1.5 sm:h-2"></div>
+              <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                 Ice Cream Stick
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded cursor-pointer">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <div className="h-[35px] w-[35px] relative">
+              <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
                   className="absolute object-fill"
-                  src="/ice-category.png"
+                  src="/ice-category-cup.png"
                   alt="ct"
                 />
               </div>
-              <div className="h-1.5"></div>
-              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+              <div className="h-1.5 sm:h-2"></div>
+              <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                 Ice Cream Package
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded cursor-pointer">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <div className="h-[35px] w-[35px] relative">
+              <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
                   className="absolute object-fill"
-                  src="/ice-category.png"
+                  src="/ice-category-cone.png"
                   alt="ct"
                 />
               </div>
-              <div className="h-1.5"></div>
-              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+              <div className="h-1.5 sm:h-2"></div>
+              <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                 Ice Cream Stick
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded cursor-pointer">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <div className="h-[35px] w-[35px] relative">
+              <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
                   className="absolute object-fill"
-                  src="/ice-category.png"
+                  src="/ice-category-family-pack.png"
                   alt="ct"
                 />
               </div>
-              <div className="h-1.5"></div>
-              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+              <div className="h-1.5 sm:h-2"></div>
+              <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                 Ice Cream Package
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded cursor-pointer">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <div className="h-[35px] w-[35px] relative">
+              <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
                   className="absolute object-fill"
-                  src="/ice-category.png"
+                  src="/ice-category-5l.png"
                   alt="ct"
                 />
               </div>
-              <div className="h-1.5"></div>
-              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+              <div className="h-1.5 sm:h-2"></div>
+              <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                 Ice Cream Stick
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded cursor-pointer">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <div className="h-[35px] w-[35px] relative">
+              <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
                   className="absolute object-fill"
-                  src="/ice-category.png"
+                  src="/ice-category-potong.png"
                   alt="ct"
                 />
               </div>
-              <div className="h-1.5"></div>
-              <p className="text-xs sm:text-sm md:text-md text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
+              <div className="h-1.5 sm:h-2"></div>
+              <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                 Ice Cream Package
               </p>
             </div>
           </SwiperSlide>
         </Swiper>
       </div>
+
+      {/* Linebreak Category */}
+      <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
+        <div className="w-full flex justify-center items-center text-slate-500">
+          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
+          <p className="md:text-lg mx-5 flex-none sm:mx-10">PRODUK SPESIAL</p>
+          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
+        </div>
+      </div>
+
+      {/* Special Price */}
+      <div className="w-full flex justify-between items-center">
+        <div className="flex items-center text-blue-600 cursor-default">
+          <p className="text-lg lg:text-xl font-normal">
+            <span className="text-roboto-bold">FLASH</span> SALE
+          </p>
+          <IoIosFlash size={28} />
+        </div>
+
+        <div className="flex items-center text-blue-600">
+          <p className="mr-[2px] hover:cursor-pointer hover:underline hover:underline-offset-4 text-sm md:text-md lg:text-base">
+            Lihat Semua
+          </p>
+          <IoArrowForward size={16} />
+        </div>
+      </div>
+
+      {/* Time Special Price */}
+      <div className="flex mt-2">
+        <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded no-select">
+          <p className="font-normal text-roboto-bold">17</p>
+        </div>
+        <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded no-select">
+          <p className="font-normal text-roboto-bold">17</p>
+        </div>
+        <div className="flex justify-center items-center mx-2">
+          <p className="font-normal text-roboto-bold">:</p>
+        </div>
+        <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded no-select">
+          <p className="font-normal text-roboto-bold">17</p>
+        </div>
+        <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded no-select">
+          <p className="font-normal text-roboto-bold">17</p>
+        </div>
+      </div>
+
+      {/* Product Special Price */}
+      <div className="my-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+        <div className="bg-gray-200 aspect-[4/3] relative overflow-hidden rounded">
+          <img className="absolute object-cover" src="/b.jpg" alt="a.jpg" />
+        </div>
+        <div className="bg-gray-200 aspect-[4/3] relative overflow-hidden rounded">
+          <img className="absolute object-cover" src="/b.jpg" alt="a.jpg" />
+        </div>
+        <div className="bg-gray-200 aspect-[4/3] relative overflow-hidden rounded">
+          <img className="absolute object-cover" src="/b.jpg" alt="a.jpg" />
+        </div>
+        <div className="bg-gray-200 aspect-[4/3] relative overflow-hidden rounded">
+          <img className="absolute object-cover" src="/b.jpg" alt="a.jpg" />
+        </div>
+        <div className="bg-gray-200 aspect-[4/3] relative overflow-hidden rounded">
+          <img className="absolute object-cover" src="/b.jpg" alt="a.jpg" />
+        </div>
+      </div>
+
+      <div className="h-20"></div>
     </>
   );
 }

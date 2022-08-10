@@ -12,6 +12,11 @@
   src: url("./font/Roboto/Roboto-Thin.ttf");
 }
 
+@font-face {
+  font-family: "Roboto-bold";
+  src: url("./font/Roboto/Roboto-Bold.ttf");
+}
+
 html {
   font-family: "Roboto";
 }
@@ -96,5 +101,9 @@ html {
 
   .swiper-button-next {
     @apply bg-gray-600;
+  }
+
+  .text-roboto-bold {
+    font-family: "Roboto-bold";
   }
 }
