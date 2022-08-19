@@ -6,7 +6,7 @@
 .swiper-button-prev {
   width: 40px !important;
   height: 40px !important;
-  background-color: rgb(236, 242, 236);
+  background-color: #ffffff;
   border: 1px solid #d4d4d4;
   border-radius: 20px !important;
 }
@@ -28,6 +28,17 @@
 .swiper-button-next,
 .swiper-button-prev {
   display: none !important;
+}
+
+.swiper-pagination-bullet {
+  opacity: 1 !important;
+  background-color: #ffffff !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 1.5rem !important;
+  border-radius: calc(1.5rem / 2) !important;
+  background-color: #2563eb !important;
 }
 
 @media (min-width: 640px) {
