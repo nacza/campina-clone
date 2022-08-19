@@ -245,7 +245,7 @@ export default function Home() {
         </Swiper>
       </div>
 
-      {/* Linebreak Category */}
+      {/* Linebreak Special Price */}
       <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
         <div className="w-full flex justify-center items-center text-slate-500">
           <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
@@ -291,6 +291,119 @@ export default function Home() {
       </div>
 
       {/* Product Special Price */}
+      <div className="special-price my-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="group">
+          <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <img
+              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              src="/b.jpg"
+              alt="b.jpg"
+            />
+          </div>
+          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+            <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
+              <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
+              <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+            </div>
+            <div className="h-10"></div>
+            <div className="text-white flex justify-between items-center no-select relative z-10">
+              <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
+                {/* <IoHeartOutline size={28} /> */}
+                <IoHeart className="text-red-600" size={28} />
+              </div>
+              <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
+                <IoCartOutline size={28} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="group">
+          <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <img
+              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              src="/b.jpg"
+              alt="b.jpg"
+            />
+          </div>
+          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+            <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
+              <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
+              <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+            </div>
+            <div className="h-10"></div>
+            <div className="text-white flex justify-between items-center no-select relative z-10">
+              <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
+                <IoHeartOutline size={28} />
+              </div>
+              <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
+                <IoCartOutline size={28} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="group">
+          <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <img
+              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              src="/b.jpg"
+              alt="b.jpg"
+            />
+          </div>
+          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+            <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
+              <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
+              <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+            </div>
+            <div className="h-10"></div>
+            <div className="text-white flex justify-between items-center no-select relative z-10">
+              <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
+                <IoHeartOutline size={28} />
+              </div>
+              <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
+                <IoCartOutline size={28} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="group">
+          <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <img
+              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              src="/b.jpg"
+              alt="b.jpg"
+            />
+          </div>
+          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+            <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
+              <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
+              <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+            </div>
+            <div className="h-10"></div>
+            <div className="text-white flex justify-between items-center no-select relative z-10">
+              <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
+                <IoHeartOutline size={28} />
+              </div>
+              <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
+                <IoCartOutline size={28} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Linebreak Product Terlaris */}
+      <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
+        <div className="w-full flex justify-center items-center text-slate-500">
+          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
+          <p className="md:text-lg mx-5 flex-none sm:mx-10">PRODUK TERLARIS</p>
+          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
+        </div>
+      </div>
+
+      {/* Produk Terlaris */}
       <div className="special-price my-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
