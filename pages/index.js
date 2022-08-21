@@ -86,7 +86,7 @@ export default function Home() {
       </nav>
 
       {/* Slider */}
-      <div className="w-full h-full relative bg-gray-200 rounded-lg mt-2 md:mt-10 overflow-hidden">
+      <div className="w-full h-full">
         <Swiper
           navigation={true}
           loop={true}
@@ -98,7 +98,7 @@ export default function Home() {
             clickable: true,
           }}
           modules={[Navigation, Pagination, Autoplay]}
-          className="mySwiper"
+          className="mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
         >
           <SwiperSlide>
             <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
@@ -295,12 +295,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -321,12 +321,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -346,12 +346,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -371,12 +371,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -408,12 +408,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -434,12 +434,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -459,12 +459,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -484,12 +484,12 @@ export default function Home() {
         <div className="group">
           <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
             <img
-              className="absolute object-cover w-full hover:scale-105 focus:scale-105 transition-all duration-400"
+              className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
               src="/b.jpg"
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white drop-shadow overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
