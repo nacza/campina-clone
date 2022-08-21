@@ -51,7 +51,7 @@ export default function Home() {
         </div>
 
         <div className="nav-header__search w-full md:w-auto">
-          <div className="mr-2 cursor-pointer p-2 hover:bg-gray-200 rounded overflow-hidden duration-100 block no-select md:hidden">
+          <div className="mr-2 cursor-pointer p-2 hover:bg-gray-200 rounded duration-100 block no-select md:hidden">
             <IoMenuSharp size={25} />
           </div>
           <div
@@ -69,17 +69,17 @@ export default function Home() {
               onFocus={onFocusSearch}
               onBlur={onBlurSearch}
             />
-            <div className="p-2 cursor-pointer bg-gray-200 absolute top-0 right-0 rounded-r overflow-hidden no-select">
+            <div className="p-2 cursor-pointer bg-gray-200 absolute top-0 right-0 rounded-r no-select">
               <IoSearchOutline size={20} />
             </div>
           </div>
-          <div className="nav-header__search-cart-wrapper p-2 rounded overflow-hidden ml-2 hover:bg-gray-200 duration-200 no-select">
+          <div className="nav-header__search-cart-wrapper p-2 rounded ml-2 hover:bg-gray-200 duration-200 no-select">
             <IoCartOutline className="nav-header__search-cart" size={25} />
           </div>
 
-          <div className="nav-header__profile-wrapper flex rounded-full overflow-hidden bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
+          <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
             <div className="w-[40px] h-[40px] flex justify-center items-center">
-              <img className="rounded-full overflow-hidden" src="" alt="NA" />
+              <img className="rounded-full" src="" alt="NA" />
             </div>
           </div>
         </div>
@@ -124,9 +124,9 @@ export default function Home() {
       {/* Linebreak Category */}
       <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
         <div className="w-full flex justify-center items-center text-slate-500">
-          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg overflow-hidden"></div>
+          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
           <p className="md:text-lg mx-5 flex-none sm:mx-10">KATEGORI</p>
-          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg overflow-hidden"></div>
+          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
         </div>
       </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
           modules={[Navigation, FreeMode]}
           className="mySwiper2 h-20 sm:h-24 pr-4"
         >
-          <SwiperSlide className="rounded-lg overflow-hidden cursor-pointer no-select hover:bg-gray-300">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
               <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
@@ -167,7 +167,7 @@ export default function Home() {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg overflow-hidden cursor-pointer no-select hover:bg-gray-300">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
               <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
@@ -182,7 +182,7 @@ export default function Home() {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg overflow-hidden cursor-pointer no-select hover:bg-gray-300">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
               <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
@@ -197,7 +197,7 @@ export default function Home() {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg overflow-hidden cursor-pointer no-select hover:bg-gray-300">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
               <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
@@ -212,7 +212,7 @@ export default function Home() {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg overflow-hidden cursor-pointer no-select hover:bg-gray-300">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
               <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
@@ -227,7 +227,7 @@ export default function Home() {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg overflow-hidden cursor-pointer no-select hover:bg-gray-300">
+          <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
             <div className="w-full h-full flex flex-col justify-center items-center">
               <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
                 <img
@@ -248,9 +248,9 @@ export default function Home() {
       {/* Linebreak Special Price */}
       <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
         <div className="w-full flex justify-center items-center text-slate-500">
-          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg overflow-hidden"></div>
+          <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
           <p className="md:text-lg mx-5 flex-none sm:mx-10">PRODUK SPESIAL</p>
-          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg overflow-hidden"></div>
+          <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
         </div>
       </div>
 
@@ -273,19 +273,19 @@ export default function Home() {
 
       {/* Time Special Price */}
       <div className="flex mt-2">
-        <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded overflow-hidden no-select">
+        <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded no-select">
           <p className="font-normal text-roboto-bold">08</p>
         </div>
-        <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded overflow-hidden no-select">
+        <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded no-select">
           <p className="font-normal text-roboto-bold">01</p>
         </div>
         <div className="flex justify-center items-center mx-2">
           <p className="font-normal text-roboto-bold">:</p>
         </div>
-        <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded overflow-hidden no-select">
+        <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded no-select">
           <p className="font-normal text-roboto-bold">33</p>
         </div>
-        <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded overflow-hidden no-select">
+        <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded no-select">
           <p className="font-normal text-roboto-bold">17</p>
         </div>
       </div>
