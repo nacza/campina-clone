@@ -300,7 +300,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -326,7 +326,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -351,7 +351,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -376,7 +376,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -413,7 +413,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -439,7 +439,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -464,7 +464,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
@@ -489,7 +489,7 @@ export default function Home() {
               alt="b.jpg"
             />
           </div>
-          <div className="py-3 px-3 bg-white border-b-2 border-x-2 overflow-hidden rounded-b-lg">
+          <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
             <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
               <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
               <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
