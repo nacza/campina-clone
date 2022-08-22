@@ -22,13 +22,15 @@ html {
 }
 
 @media (max-width: 339px) {
-  .special-price {
+  .special-price,
+  .best-selling {
     @apply grid-cols-1 !important;
   }
 }
 
 @media (min-width: 530px) and (max-width: 830px) {
-  .special-price {
+  .special-price,
+  .best-selling {
     @apply grid-cols-3 !important;
   }
 }
@@ -40,12 +42,8 @@ html {
 }
 
 @layer components {
-  #__next {
-    @apply max-w-7xl m-auto px-3.5 sm:px-5;
-  }
-
   .nav-header {
-    @apply flex justify-between items-center h-16 bg-white text-slate-500 relative w-full;
+    @apply flex justify-between items-center h-16 text-slate-500 relative w-full;
   }
 
   .nav-header__wrapper {

@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
     "@meronex/icons": "^4.0.0",
     "next": "12.2.3",
     "next-compose-plugins": "^2.2.1",
