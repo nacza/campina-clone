@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-family: "Roboto";
+}
+
+.font-bold {
+  font-family: "Roboto-bold";
+}
+
 @font-face {
   font-family: "Roboto";
   src: url("./font/Roboto/Roboto-Regular.ttf");
@@ -17,11 +25,7 @@
   src: url("./font/Roboto/Roboto-Bold.ttf");
 }
 
-html {
-  font-family: "Roboto";
-}
-
-@media (max-width: 339px) {
+@media (max-width: 359px) and (max-width: 339px) {
   .special-price,
   .best-selling {
     @apply grid-cols-1 !important;

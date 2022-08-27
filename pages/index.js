@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { IoIosFlash } from "react-icons/io";
 import {
-  IoSearchOutline,
+  IoSearchSharp,
   IoCartOutline,
   IoMenuSharp,
   IoArrowForward,
@@ -13,7 +13,10 @@ import {
   IoHeart,
   IoLogoGithub,
   IoClose,
+  IoAddSharp,
+  IoRemoveSharp,
 } from "react-icons/io5";
+import { BsCartPlus } from "react-icons/bs";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
@@ -71,7 +74,7 @@ export default function Home() {
                 className="mr-2 cursor-pointer p-2 hover:bg-gray-200 rounded duration-100 block no-select md:hidden"
                 onClick={onOpenSidebar}
               >
-                <IoMenuSharp size={25} />
+                <IoMenuSharp className="w-8 h-8" />
               </div>
               <div
                 className={
@@ -89,11 +92,11 @@ export default function Home() {
                   onBlur={onBlurSearch}
                 />
                 <div className="p-2 cursor-pointer bg-gray-200 absolute top-0 right-0 rounded-r no-select">
-                  <IoSearchOutline size={20} />
+                  <IoSearchSharp className="w-5 h-5" />
                 </div>
               </div>
               <div className="nav-header__search-cart-wrapper p-2 rounded ml-2 hover:bg-gray-200 duration-200 no-select">
-                <IoCartOutline className="nav-header__search-cart" size={25} />
+                <IoCartOutline className="nav-header__search-cart w-8 h-8" />
               </div>
 
               <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
@@ -110,32 +113,37 @@ export default function Home() {
       <div
         className={
           openSidebar
-            ? "bg-gray-100 fixed md:hidden top-0 left-0 w-4/5 h-screen z-30 text-slate-400 transition-all duration-150 "
-            : "bg-gray-100 fixed md:hidden top-0 left-[-1000px] w-4/5 h-screen z-30 text-slate-400 transition-all duration-150"
+            ? "bg-gray-100 fixed md:hidden top-0 left-0 h-screen z-30 text-slate-400 transition-all duration-250 "
+            : "bg-gray-100 fixed md:hidden top-0 left-[-1000px] h-screen z-30 text-slate-400 transition-all duration-250"
         }
       >
-        <div className="pl-4 mt-4">
-          <IoClose
-            className="h-9 w-9 ml-[-.5rem] cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select"
-            onClick={onCloseSidebar}
-          />
-        </div>
-        <div className="px-4">
-          <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-            PRODUK
-          </p>
-          <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-            PROMOSI
-          </p>
-          <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-            NEWS
-          </p>
-          <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-            BLOG
-          </p>
-          <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-            LOGIN / REGISTER
-          </p>
+        <div className="flex">
+          <div>
+            <div className="pl-4 mt-4">
+              <IoClose
+                className="h-9 w-9 ml-[-.5rem] cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select"
+                onClick={onCloseSidebar}
+              />
+            </div>
+            <div className="px-4">
+              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
+                PRODUK
+              </p>
+              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
+                PROMOSI
+              </p>
+              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
+                NEWS
+              </p>
+              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
+                BLOG
+              </p>
+              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
+                LOGIN / REGISTER
+              </p>
+            </div>
+          </div>
+          <div className="bg-gray-800 h-screen"></div>
         </div>
       </div>
 
@@ -146,10 +154,6 @@ export default function Home() {
           <Swiper
             navigation={true}
             loop={true}
-            // autoplay={{
-            //   delay: 7000,
-            //   disableOnInteraction: false,
-            // }}
             pagination={{
               clickable: true,
             }}
@@ -181,7 +185,9 @@ export default function Home() {
         <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
           <div className="w-full flex justify-center items-center text-slate-500">
             <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-            <p className="md:text-lg mx-5 flex-none sm:mx-10">KATEGORI</p>
+            <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
+              KATEGORI
+            </p>
             <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
           </div>
         </div>
@@ -210,14 +216,14 @@ export default function Home() {
           >
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
+                <div className="h-[35px] w-[35px] relative">
                   <img
                     className="absolute object-fill"
                     src="/ice-category-stick.png"
                     alt="ct"
                   />
                 </div>
-                <div className="h-1.5 sm:h-2"></div>
+                <div className="h-2"></div>
                 <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                   Ice Cream Stick
                 </p>
@@ -225,14 +231,14 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
+                <div className="h-[35px] w-[35px] relative">
                   <img
                     className="absolute object-fill"
                     src="/ice-category-cup.png"
                     alt="ct"
                   />
                 </div>
-                <div className="h-1.5 sm:h-2"></div>
+                <div className="h-2"></div>
                 <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                   Ice Cream Package
                 </p>
@@ -240,14 +246,14 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
+                <div className="h-[35px] w-[35px] relative">
                   <img
                     className="absolute object-fill"
                     src="/ice-category-cone.png"
                     alt="ct"
                   />
                 </div>
-                <div className="h-1.5 sm:h-2"></div>
+                <div className="h-2"></div>
                 <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                   Ice Cream Stick
                 </p>
@@ -255,14 +261,14 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
+                <div className="h-[35px] w-[35px] relative">
                   <img
                     className="absolute object-fill"
                     src="/ice-category-family-pack.png"
                     alt="ct"
                   />
                 </div>
-                <div className="h-1.5 sm:h-2"></div>
+                <div className="h-2"></div>
                 <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                   Ice Cream Package
                 </p>
@@ -270,14 +276,14 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
+                <div className="h-[35px] w-[35px] relative">
                   <img
                     className="absolute object-fill"
                     src="/ice-category-5l.png"
                     alt="ct"
                   />
                 </div>
-                <div className="h-1.5 sm:h-2"></div>
+                <div className="h-2"></div>
                 <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                   Ice Cream Stick
                 </p>
@@ -285,14 +291,14 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] relative">
+                <div className="h-[35px] w-[35px] relative">
                   <img
                     className="absolute object-fill"
                     src="/ice-category-potong.png"
                     alt="ct"
                   />
                 </div>
-                <div className="h-1.5 sm:h-2"></div>
+                <div className="h-2"></div>
                 <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
                   Ice Cream Package
                 </p>
@@ -305,7 +311,9 @@ export default function Home() {
         <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
           <div className="w-full flex justify-center items-center text-slate-500">
             <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-            <p className="md:text-lg mx-5 flex-none sm:mx-10">PRODUK SPESIAL</p>
+            <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
+              PRODUK SPESIAL
+            </p>
             <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
           </div>
         </div>
@@ -316,14 +324,18 @@ export default function Home() {
             <p className="text-lg lg:text-xl font-normal">
               <span className="text-roboto-bold">FLASH</span> SALE
             </p>
-            <IoIosFlash size={28} />
+            <div>
+              <IoIosFlash className="w-10 h-10" />
+            </div>
           </div>
 
           <div className="flex items-center text-blue-600">
             <p className="mr-[2px] hover:cursor-pointer hover:underline hover:underline-offset-4 text-sm md:text-md lg:text-base no-select">
               Lihat Semua
             </p>
-            <IoArrowForward size={16} />
+            <div>
+              <IoArrowForward className="w-5 h-5" />
+            </div>
           </div>
         </div>
 
@@ -351,7 +363,7 @@ export default function Home() {
           <div className="group">
             <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
               <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
                 alt="b.jpg"
               />
@@ -364,11 +376,10 @@ export default function Home() {
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
                 <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  {/* <IoHeartOutline size={28} /> */}
-                  <IoHeart className="text-red-600" size={28} />
+                  <IoHeart className="text-red-600 h-7 w-7" />
                 </div>
                 <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
+                  <BsCartPlus className="h-7 w-7" />
                 </div>
               </div>
             </div>
@@ -377,7 +388,7 @@ export default function Home() {
           <div className="group">
             <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
               <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
                 alt="b.jpg"
               />
@@ -390,10 +401,10 @@ export default function Home() {
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
                 <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeartOutline size={28} />
+                  <IoHeart className="text-red-600 h-7 w-7" />
                 </div>
                 <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
+                  <BsCartPlus className="h-7 w-7" />
                 </div>
               </div>
             </div>
@@ -402,7 +413,7 @@ export default function Home() {
           <div className="group">
             <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
               <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
                 alt="b.jpg"
               />
@@ -415,10 +426,10 @@ export default function Home() {
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
                 <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeartOutline size={28} />
+                  <IoHeart className="text-red-600 h-7 w-7" />
                 </div>
                 <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
+                  <BsCartPlus className="h-7 w-7" />
                 </div>
               </div>
             </div>
@@ -427,7 +438,7 @@ export default function Home() {
           <div className="group">
             <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
               <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
                 alt="b.jpg"
               />
@@ -440,125 +451,10 @@ export default function Home() {
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
                 <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeartOutline size={28} />
+                  <IoHeart className="text-red-600 h-7 w-7" />
                 </div>
                 <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Linebreak Product Terlaris */}
-        <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
-          <div className="w-full flex justify-center items-center text-slate-500">
-            <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-            <p className="md:text-lg mx-5 flex-none sm:mx-10">
-              PRODUK TERLARIS
-            </p>
-            <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
-          </div>
-        </div>
-
-        {/* Produk Terlaris */}
-        <div className="best-selling grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
-              <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
-              </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  {/* <IoHeartOutline size={28} /> */}
-                  <IoHeart className="text-red-600" size={28} />
-                </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
-              <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
-              </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeartOutline size={28} />
-                </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
-              <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
-              </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeartOutline size={28} />
-                </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
-              <img
-                className="absolute object-cover w-full focus:scale-105 transition-all duration-400"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
-              </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeartOutline size={28} />
-                </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <IoCartOutline size={28} />
+                  <BsCartPlus className="h-7 w-7" />
                 </div>
               </div>
             </div>
