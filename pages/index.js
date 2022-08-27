@@ -28,6 +28,8 @@ import "swiper/css/free-mode";
 export default function Home() {
   const [focusSearch, setFocusSearch] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
+  const [swiperBanner, setSwiperBanner] = useState(false);
+  const [swiperCategory, setSwiperCategory] = useState(false);
 
   function onFocusSearch() {
     setFocusSearch(!focusSearch);
@@ -43,6 +45,14 @@ export default function Home() {
 
   function onCloseSidebar() {
     setOpenSidebar(!openSidebar);
+  }
+
+  function onInitializedSwiperBanner() {
+    setSwiperBanner(true);
+  }
+
+  function onInitializedSwiperCategory() {
+    setSwiperCategory(true);
   }
 
   return (
@@ -149,8 +159,16 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-7xl m-auto px-3.5 sm:px-5">
-        {/* Slider */}
-        <div className="w-full h-full">
+        {/* Skeleton Slider Banner */}
+        <div
+          className={
+            swiperBanner
+              ? "hidden"
+              : "min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.5rem] relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+          }
+        ></div>
+        {/* Slider Banner */}
+        <div className={swiperBanner ? "w-full" : "hidden"}>
           <Swiper
             navigation={true}
             loop={true}
@@ -158,6 +176,7 @@ export default function Home() {
               clickable: true,
             }}
             modules={[Navigation, Pagination, Autoplay]}
+            onAfterInit={onInitializedSwiperBanner}
             className="mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
           >
             <SwiperSlide>
@@ -192,8 +211,16 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Skeleton Slider Subcategory */}
+        <div
+          className={
+            swiperCategory
+              ? "hidden"
+              : "min-h-[80px] sm:min-h-[96px] relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+          }
+        ></div>
         {/* Slider Subcategory */}
-        <div className="relative overflow-hidden">
+        <div className={swiperCategory ? "relative overflow-hidden" : "hidden"}>
           <Swiper
             breakpoints={{
               0: {
@@ -212,6 +239,7 @@ export default function Home() {
             freeMode={true}
             navigation={true}
             modules={[Navigation, FreeMode]}
+            onAfterInit={onInitializedSwiperCategory}
             className="mySwiper2 h-20 sm:h-24 pr-4"
           >
             <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
