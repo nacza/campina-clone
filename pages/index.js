@@ -177,7 +177,7 @@ export default function Home() {
             }}
             modules={[Navigation, Pagination, Autoplay]}
             onAfterInit={onInitializedSwiperBanner}
-            className="mySwiper min-h-[9.5rem] relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+            className="mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
           >
             <SwiperSlide>
               <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
