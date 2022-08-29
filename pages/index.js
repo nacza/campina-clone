@@ -48,13 +48,13 @@ export default function Home() {
   function onInitializedSwiperBanner() {
     setTimeout(() => {
       setSwiperBanner(true);
-    }, 3500);
+    }, 2500);
   }
 
   function onInitializedSwiperCategory() {
     setTimeout(() => {
       setSwiperCategory(true);
-    }, 3500);
+    }, 2500);
   }
 
   return (
