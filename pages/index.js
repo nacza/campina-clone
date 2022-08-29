@@ -13,8 +13,6 @@ import {
   IoHeart,
   IoLogoGithub,
   IoClose,
-  IoAddSharp,
-  IoRemoveSharp,
 } from "react-icons/io5";
 import { BsCartPlus } from "react-icons/bs";
 
@@ -48,11 +46,15 @@ export default function Home() {
   }
 
   function onInitializedSwiperBanner() {
-    setSwiperBanner(true);
+    setTimeout(() => {
+      setSwiperBanner(true);
+    }, 3500);
   }
 
   function onInitializedSwiperCategory() {
-    setSwiperCategory(true);
+    setTimeout(() => {
+      setSwiperCategory(true);
+    }, 3500);
   }
 
   return (
