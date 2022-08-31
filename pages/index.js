@@ -391,7 +391,7 @@ export default function Home() {
         {/* Product Special Price */}
         <div className="special-price grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
               <img
                 className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
@@ -416,7 +416,7 @@ export default function Home() {
           </div>
 
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
               <img
                 className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
@@ -441,7 +441,7 @@ export default function Home() {
           </div>
 
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
               <img
                 className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
@@ -466,7 +466,7 @@ export default function Home() {
           </div>
 
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
               <img
                 className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
                 src="/b.jpg"
