@@ -159,7 +159,7 @@ export default function Home() {
           <div
             className={
               swiperBanner
-                ? "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+                ? "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] md:mt-10 rounded-lg overflow-hidden"
                 : "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden z-10"
             }
           ></div>
@@ -218,7 +218,7 @@ export default function Home() {
           <div
             className={
               swiperCategory
-                ? "absolute w-full min-h-[80px] sm:min-h-[96px] bg-gray-200 rounded-lg overflow-hidden"
+                ? "absolute w-full min-h-[80px] sm:min-h-[96px] rounded-lg overflow-hidden"
                 : "absolute w-full min-h-[80px] sm:min-h-[96px] bg-gray-200 rounded-lg overflow-hidden z-10"
             }
           ></div>
