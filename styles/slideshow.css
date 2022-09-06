@@ -4,46 +4,51 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px;
+  height: 40px;
   background-color: #ffffff;
   border: 1px solid #d4d4d4;
-  border-radius: 20px !important;
+  border-radius: 20px;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 1rem !important;
+  font-size: 1rem;
 }
 
 .mySwiper2 {
-  padding-right: 2.5rem !important;
+  padding-right: 2.5rem;
 }
 
 .mySwiper2 .swiper-button-next::after,
 .mySwiper2 .swiper-button-prev::after {
-  font-size: 1rem !important;
+  font-size: 1rem;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  display: none !important;
+  display: none;
 }
 
 .swiper-pagination-bullet {
-  opacity: 1 !important;
-  background-color: #ffffff !important;
+  opacity: 1;
+  background-color: #ffffff;
 }
 
 .swiper-pagination-bullet-active {
-  width: 1.5rem !important;
-  border-radius: calc(1.5rem / 2) !important;
-  background-color: #2563eb !important;
+  width: 1.5rem;
+  border-radius: calc(1.5rem / 2);
+  background-color: #2563eb;
+}
+
+.slide__category__wrapper {
+  width: auto;
+  margin-right: 14px;
 }
 
 @media (min-width: 640px) {
   .swiper-button-next,
   .swiper-button-prev {
-    display: flex !important;
+    display: flex;
   }
 }

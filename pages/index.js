@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -18,10 +18,6 @@ import { BsCartPlus } from "react-icons/bs";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
 
 export default function Home() {
   const [focusSearch, setFocusSearch] = useState(false);
@@ -46,15 +42,11 @@ export default function Home() {
   }
 
   function onInitializedSwiperBanner() {
-    setTimeout(() => {
-      setSwiperBanner(true);
-    }, 2500);
+    setSwiperBanner(true);
   }
 
   function onInitializedSwiperCategory() {
-    setTimeout(() => {
-      setSwiperCategory(true);
-    }, 2500);
+    setSwiperCategory(true);
   }
 
   return (
@@ -161,25 +153,32 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-7xl m-auto px-3.5 sm:px-5">
-        {/* Skeleton Slider Banner */}
-        <div
-          className={
-            swiperBanner
-              ? "hidden"
-              : "min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.5rem] relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
-          }
-        ></div>
         {/* Slider Banner */}
-        <div className={swiperBanner ? "w-full" : "hidden"}>
+        <div className="relative overflow-hidden">
+          {/* Skeleton Slider Banner */}
+          <div
+            className={
+              swiperBanner
+                ? "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+                : "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden z-10"
+            }
+          ></div>
+
           <Swiper
             navigation={true}
             loop={true}
+            slidesPerView="auto"
+            watchSlidesProgress={true}
             pagination={{
               clickable: true,
             }}
             modules={[Navigation, Pagination, Autoplay]}
-            onAfterInit={onInitializedSwiperBanner}
-            className="mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+            onImagesReady={onInitializedSwiperBanner}
+            className={
+              swiperBanner
+                ? "mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
+                : "mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem]"
+            }
           >
             <SwiperSlide>
               <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
@@ -213,16 +212,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Skeleton Slider Subcategory */}
-        <div
-          className={
-            swiperCategory
-              ? "hidden"
-              : "min-h-[80px] sm:min-h-[96px] relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
-          }
-        ></div>
         {/* Slider Subcategory */}
-        <div className={swiperCategory ? "relative overflow-hidden" : "hidden"}>
+        <div className="relative overflow-hidden">
+          {/* Skeleton Slider Category */}
+          <div
+            className={
+              swiperCategory
+                ? "absolute w-full min-h-[80px] sm:min-h-[96px] bg-gray-200 rounded-lg overflow-hidden"
+                : "absolute w-full min-h-[80px] sm:min-h-[96px] bg-gray-200 rounded-lg overflow-hidden z-10"
+            }
+          ></div>
+
           <Swiper
             breakpoints={{
               0: {
@@ -240,11 +240,13 @@ export default function Home() {
             }}
             freeMode={true}
             navigation={true}
+            slidesPerView="auto"
+            watchSlidesProgress={true}
             modules={[Navigation, FreeMode]}
-            onAfterInit={onInitializedSwiperCategory}
+            onImagesReady={onInitializedSwiperCategory}
             className="mySwiper2 h-20 sm:h-24 pr-4"
           >
-            <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
+            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="h-[35px] w-[35px] relative">
                   <img
@@ -259,7 +261,7 @@ export default function Home() {
                 </p>
               </div>
             </SwiperSlide>
-            <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
+            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="h-[35px] w-[35px] relative">
                   <img
@@ -274,7 +276,7 @@ export default function Home() {
                 </p>
               </div>
             </SwiperSlide>
-            <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
+            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="h-[35px] w-[35px] relative">
                   <img
@@ -289,7 +291,7 @@ export default function Home() {
                 </p>
               </div>
             </SwiperSlide>
-            <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
+            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="h-[35px] w-[35px] relative">
                   <img
@@ -304,7 +306,7 @@ export default function Home() {
                 </p>
               </div>
             </SwiperSlide>
-            <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
+            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="h-[35px] w-[35px] relative">
                   <img
@@ -319,7 +321,7 @@ export default function Home() {
                 </p>
               </div>
             </SwiperSlide>
-            <SwiperSlide className="rounded-lg cursor-pointer no-select hover:bg-gray-300">
+            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
               <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="h-[35px] w-[35px] relative">
                   <img
