@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       {/* Navbar */}
-      <div className="bg-white sticky top-0 z-20">
+      <div className="bg-white sticky top-0 py-1.5 z-20">
         <div className="max-w-7xl m-auto px-3.5 sm:px-5">
           <nav className="nav-header">
             <ul className="nav-header__wrapper hidden md:flex">
@@ -103,11 +103,19 @@ export default function Home() {
                 <IoCartOutline className="nav-header__search-cart w-8 h-8" />
               </div>
 
-              <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
+              <div className="flex hidden sm:inline-flex">
+                <button className="px-4 py-2 font-bold bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 rounded-md mx-1 no-select">
+                  Masuk
+                </button>
+                <button className="px-4 py-2 font-bold bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 rounded-md ml-1 no-select">
+                  Daftar
+                </button>
+              </div>
+              {/* <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
                 <div className="w-[40px] h-[40px] flex justify-center items-center">
                   <img className="rounded-full" src="" alt="NA" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </nav>
         </div>
@@ -115,40 +123,36 @@ export default function Home() {
 
       {/* Sidebar Mobile */}
       <div
-        className={
-          openSidebar
-            ? "bg-gray-100 fixed md:hidden top-0 left-0 h-screen z-30 text-slate-400 transition-all duration-250 "
-            : "bg-gray-100 fixed md:hidden top-0 left-[-1000px] h-screen z-30 text-slate-400 transition-all duration-250"
-        }
+        className={`flex w-screen h-screen bg-transparent fixed md:hidden top-0 text-slate-400 ease-in-out duration-150 z-30 ${
+          openSidebar ? "left-0" : "left-[-600px]"
+        }`}
       >
-        <div className="flex">
-          <div>
-            <div className="pl-4 mt-4">
-              <IoClose
-                className="h-9 w-9 ml-[-.5rem] cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select"
-                onClick={onCloseSidebar}
-              />
-            </div>
-            <div className="px-4">
-              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-                PRODUK
-              </p>
-              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-                PROMOSI
-              </p>
-              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-                NEWS
-              </p>
-              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-                BLOG
-              </p>
-              <p className="py-2 cursor-pointer hover:text-slate-600 focus:text-slate-600 no-select">
-                LOGIN / REGISTER
-              </p>
-            </div>
+        <div className="w-3/6 bg-gray-100 z-10">
+          <div className="pl-4 mt-4">
+            <IoClose
+              className="h-9 w-9 ml-[-.5rem] cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select"
+              onClick={onCloseSidebar}
+            />
           </div>
-          <div className="bg-gray-800 h-screen"></div>
+          <div className="px-4">
+            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
+              PRODUK
+            </p>
+            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
+              PROMOSI
+            </p>
+            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
+              NEWS
+            </p>
+            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
+              BLOG
+            </p>
+            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
+              LOGIN / REGISTER
+            </p>
+          </div>
         </div>
+        <div className="h-screen flex-auto" onClick={onOpenSidebar}></div>
       </div>
 
       {/* Main Content */}
@@ -181,7 +185,7 @@ export default function Home() {
             }
           >
             <SwiperSlide>
-              <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
+              <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative no-select">
                 <img
                   className="absolute sm:relative object-cover h-[100%]"
                   src="/slide-1.png"
@@ -190,7 +194,7 @@ export default function Home() {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative">
+              <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative no-select">
                 <img
                   className="absolute sm:relative object-cover h-[100%]"
                   src="/slide-2.png"
@@ -393,17 +397,21 @@ export default function Home() {
         {/* Product Special Price */}
         <div className="special-price grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
               <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
                 src="/b.jpg"
                 alt="b.jpg"
               />
             </div>
             <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
               <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Campina 8L
+                </p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Rp. 90.000
+                </p>
               </div>
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
@@ -418,17 +426,21 @@ export default function Home() {
           </div>
 
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
               <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
                 src="/b.jpg"
                 alt="b.jpg"
               />
             </div>
             <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
               <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Campina 8L
+                </p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Rp. 90.000
+                </p>
               </div>
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
@@ -443,17 +455,21 @@ export default function Home() {
           </div>
 
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
               <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
                 src="/b.jpg"
                 alt="b.jpg"
               />
             </div>
             <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
               <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Campina 8L
+                </p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Rp. 90.000
+                </p>
               </div>
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">
@@ -468,17 +484,21 @@ export default function Home() {
           </div>
 
           <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10">
+            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
               <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05]"
+                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
                 src="/b.jpg"
                 alt="b.jpg"
               />
             </div>
             <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
               <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base">Campina 8L</p>
-                <p className="text-sm md:text-md lg:text-base">Rp. 90.000</p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Campina 8L
+                </p>
+                <p className="text-sm md:text-md lg:text-base no-select">
+                  Rp. 90.000
+                </p>
               </div>
               <div className="h-10"></div>
               <div className="text-white flex justify-between items-center no-select relative z-10">

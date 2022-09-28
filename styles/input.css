@@ -46,6 +46,12 @@ html {
   }
 }
 
+@media (max-width: 1065px) {
+  .nav-header__logo {
+    @apply hidden;
+  }
+}
+
 @layer components {
   .nav-header {
     @apply flex justify-between items-center h-16 text-slate-500 relative w-full;
