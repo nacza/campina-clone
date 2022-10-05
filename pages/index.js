@@ -452,10 +452,10 @@ export default function Home({
               </div>
               <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
                 <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                  <p className="text-sm md:text-md lg:text-base no-select">
+                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
                     {item.name}
                   </p>
-                  <p className="text-sm md:text-md lg:text-base no-select">
+                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
                     Rp. {item.price}
                   </p>
                 </div>
@@ -497,10 +497,10 @@ export default function Home({
               </div>
               <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
                 <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                  <p className="text-sm md:text-md lg:text-base no-select">
+                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
                     {item.name}
                   </p>
-                  <p className="text-sm md:text-md lg:text-base no-select">
+                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
                     Rp. {item.price}
                   </p>
                 </div>
