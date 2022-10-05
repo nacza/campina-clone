@@ -18,8 +18,58 @@ import { BsCartPlus } from "react-icons/bs";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
+import hygraphClient, { gql } from "../lib/hygraph-client";
 
-export default function Home() {
+async function getDataHome() {
+  const { listProductsBestSeller, listProductsFlashSale } =
+    await hygraphClient.request(
+      gql`
+        query home {
+          listProductsFlashSale: products(first: 4) {
+            id
+            images {
+              height
+              width
+              url
+            }
+            name
+            price
+          }
+          listProductsBestSeller: products {
+            id
+            images {
+              height
+              width
+              url
+            }
+            name
+            price
+          }
+        }
+      `
+    );
+
+  return {
+    listProductsFlashSale,
+    listProductsBestSeller,
+  };
+}
+
+export async function getStaticProps() {
+  const { listProductsFlashSale, listProductsBestSeller } = await getDataHome();
+
+  return {
+    props: {
+      listProductsFlashSale,
+      listProductsBestSeller,
+    },
+  };
+}
+
+export default function Home({
+  listProductsFlashSale,
+  listProductsBestSeller,
+}) {
   const [focusSearch, setFocusSearch] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
   const [swiperBanner, setSwiperBanner] = useState(false);
@@ -111,11 +161,6 @@ export default function Home() {
                   Daftar
                 </button>
               </div>
-              {/* <div className="nav-header__profile-wrapper flex rounded-full bg-gray-200 cursor-pointer duration-200 hidden sm:flex sm:ml-2">
-                <div className="w-[40px] h-[40px] flex justify-center items-center">
-                  <img className="rounded-full" src="" alt="NA" />
-                </div>
-              </div> */}
             </div>
           </nav>
         </div>
@@ -396,121 +441,81 @@ export default function Home() {
 
         {/* Product Special Price */}
         <div className="special-price grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
-              <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Campina 8L
-                </p>
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Rp. 90.000
-                </p>
+          {listProductsFlashSale.map((item, i) => (
+            <div key={item.id} className="group">
+              <div className="bg-gray-200 relative aspect-square overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
+                <img
+                  className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
+                  src={item.images[0].url}
+                  alt={item.name}
+                />
               </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeart className="text-red-600 h-7 w-7" />
+              <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
+                <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
+                  <p className="text-sm md:text-md lg:text-base no-select">
+                    {item.name}
+                  </p>
+                  <p className="text-sm md:text-md lg:text-base no-select">
+                    Rp. {item.price}
+                  </p>
                 </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <BsCartPlus className="h-7 w-7" />
+                <div className="h-10"></div>
+                <div className="text-white flex justify-between items-center no-select relative z-10">
+                  <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
+                    <IoHeartOutline className="text-red-600 h-7 w-7" />
+                  </div>
+                  <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
+                    <BsCartPlus className="h-7 w-7" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
-              <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Campina 8L
-                </p>
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Rp. 90.000
-                </p>
-              </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeart className="text-red-600 h-7 w-7" />
-                </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <BsCartPlus className="h-7 w-7" />
-                </div>
-              </div>
-            </div>
+        {/* Linebreak Produk Terlaris */}
+        <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
+          <div className="w-full flex justify-center items-center text-slate-500">
+            <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
+            <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
+              PRODUK TERLARIS
+            </p>
+            <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
           </div>
+        </div>
 
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
-              <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Campina 8L
-                </p>
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Rp. 90.000
-                </p>
+        {/* Product Best Selling */}
+        <div className="best-selling grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+          {listProductsBestSeller.map((item, i) => (
+            <div key={item.id} className="group">
+              <div className="bg-gray-200 relative aspect-square overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
+                <img
+                  className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
+                  src={item.images[0].url}
+                  alt={item.name}
+                />
               </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeart className="text-red-600 h-7 w-7" />
+              <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
+                <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
+                  <p className="text-sm md:text-md lg:text-base no-select">
+                    {item.name}
+                  </p>
+                  <p className="text-sm md:text-md lg:text-base no-select">
+                    Rp. {item.price}
+                  </p>
                 </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <BsCartPlus className="h-7 w-7" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group">
-            <div className="bg-gray-200 relative aspect-[4/3] overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
-              <img
-                className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
-                src="/b.jpg"
-                alt="b.jpg"
-              />
-            </div>
-            <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-              <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Campina 8L
-                </p>
-                <p className="text-sm md:text-md lg:text-base no-select">
-                  Rp. 90.000
-                </p>
-              </div>
-              <div className="h-10"></div>
-              <div className="text-white flex justify-between items-center no-select relative z-10">
-                <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                  <IoHeart className="text-red-600 h-7 w-7" />
-                </div>
-                <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                  <BsCartPlus className="h-7 w-7" />
+                <div className="h-10"></div>
+                <div className="text-white flex justify-between items-center no-select relative z-10">
+                  <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
+                    <IoHeartOutline className="text-red-600 h-7 w-7" />
+                  </div>
+                  <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
+                    <BsCartPlus className="h-7 w-7" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </main>
 
