@@ -101,7 +101,7 @@ function Navbar() {
       {/* Sidebar Mobile */}
       <div
         className={`flex w-screen h-screen bg-transparent fixed md:hidden top-0 text-slate-400 ease-in-out duration-150 z-30 ${
-          openSidebar ? "left-0" : "left-[-600px]"
+          openSidebar ? "left-0" : "left-[-1000px]"
         }`}
       >
         <div className="w-3/6 bg-gray-100 z-10">
