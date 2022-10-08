@@ -1,74 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import Image from "next/image";
-import Link from "next/link";
-
 import { IoIosFlash } from "react-icons/io";
-import {
-  IoSearchSharp,
-  IoCartOutline,
-  IoMenuSharp,
-  IoArrowForward,
-  IoHeartOutline,
-  IoHeart,
-  IoLogoGithub,
-  IoClose,
-} from "react-icons/io5";
+import { IoArrowForward, IoHeartOutline, IoHeart } from "react-icons/io5";
 import { BsCartPlus } from "react-icons/bs";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
-import hygraphClient, { gql } from "../lib/hygraph-client";
-import { hygraphDummyDataHome } from "@/lib/hygraph-dummy-data";
 
-async function getDataHome() {
-  const hygraphDataHome = () => {
-    return hygraphClient.request(
-      gql`
-        query Home {
-          listProductsFlashSale: products(first: 4) {
-            id
-            images {
-              height
-              width
-              url
-            }
-            name
-            price
-          }
-          listProductsBestSeller: products {
-            id
-            images {
-              height
-              width
-              url
-            }
-            name
-            price
-          }
-          listCategories: categories {
-            id
-            name
-            slug
-            images {
-              id
-              fileName
-              url
-            }
-          }
-        }
-      `
-    );
-  };
-  const { listProductsBestSeller, listProductsFlashSale, listCategories } =
-    process.env.FLAG_DEV ? hygraphDummyDataHome() : await hygraphDataHome();
+import Template from "@/components/template";
 
-  return {
-    listProductsFlashSale,
-    listProductsBestSeller,
-    listCategories,
-  };
-}
+import { getDataHome } from "@/lib/data";
 
 export async function getStaticProps() {
   const { listProductsFlashSale, listProductsBestSeller, listCategories } =
@@ -88,26 +29,8 @@ export default function Home({
   listProductsBestSeller,
   listCategories,
 }) {
-  const [focusSearch, setFocusSearch] = useState(false);
-  const [openSidebar, setOpenSidebar] = useState(false);
   const [swiperBanner, setSwiperBanner] = useState(false);
   const [swiperCategory, setSwiperCategory] = useState(false);
-
-  function onFocusSearch() {
-    setFocusSearch(!focusSearch);
-  }
-
-  function onBlurSearch() {
-    setFocusSearch(!focusSearch);
-  }
-
-  function onOpenSidebar() {
-    setOpenSidebar(!openSidebar);
-  }
-
-  function onCloseSidebar() {
-    setOpenSidebar(!openSidebar);
-  }
 
   function onInitializedSwiperBanner() {
     setSwiperBanner(true);
@@ -118,116 +41,17 @@ export default function Home({
   }
 
   return (
-    <>
-      {/* Navbar */}
-      <div className="bg-white sticky top-0 py-1.5 z-20">
-        <div className="max-w-7xl m-auto px-3.5 sm:px-5">
-          <nav className="nav-header">
-            <ul className="nav-header__wrapper hidden md:flex">
-              <li className="nav-header__item">HOME</li>
-              <li className="nav-header__item">PRODUK</li>
-              <li className="nav-header__item">PROMOSI</li>
-              <li className="nav-header__item">NEWS</li>
-              <li className="nav-header__item">BLOG</li>
-            </ul>
-
-            <div className="nav-header__logo">
-              <Image
-                className="nav-header__logo-inside"
-                src="https://icecreamstore.co.id/assets/images/logo.png"
-                width={100}
-                height={74}
-                alt="logo"
-              />
-            </div>
-
-            <div className="nav-header__search w-full md:w-auto">
-              <div
-                className="mr-2 cursor-pointer p-2 hover:bg-gray-200 rounded duration-100 block no-select md:hidden"
-                onClick={onOpenSidebar}
-              >
-                <IoMenuSharp className="w-8 h-8" />
-              </div>
-              <div
-                className={
-                  focusSearch
-                    ? "relative w-full flex justify-center items-center rounded-lg overflow-hidden pr-5 border-2 duration-100 border-blue-300"
-                    : "relative w-full flex justify-center items-center rounded-lg overflow-hidden pr-5 border-2 duration-100"
-                }
-              >
-                <input
-                  className="nav-header__search-input outline-none p-2"
-                  placeholder="CARI PRODUK"
-                  type="text"
-                  name="search"
-                  onFocus={onFocusSearch}
-                  onBlur={onBlurSearch}
-                />
-                <div className="p-2 cursor-pointer bg-gray-200 absolute top-0 right-0 rounded-r no-select">
-                  <IoSearchSharp className="w-5 h-5" />
-                </div>
-              </div>
-              <div className="nav-header__search-cart-wrapper p-2 rounded ml-2 hover:bg-gray-200 duration-200 no-select">
-                <IoCartOutline className="nav-header__search-cart w-8 h-8" />
-              </div>
-
-              <div className="flex hidden sm:inline-flex">
-                <button className="px-4 py-2 font-bold bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 rounded-md mx-1 no-select">
-                  Masuk
-                </button>
-                <button className="px-4 py-2 font-bold bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 rounded-md ml-1 no-select">
-                  Daftar
-                </button>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-
-      {/* Sidebar Mobile */}
-      <div
-        className={`flex w-screen h-screen bg-transparent fixed md:hidden top-0 text-slate-400 ease-in-out duration-150 z-30 ${
-          openSidebar ? "left-0" : "left-[-600px]"
-        }`}
-      >
-        <div className="w-3/6 bg-gray-100 z-10">
-          <div className="pl-4 mt-4">
-            <IoClose
-              className="h-9 w-9 ml-[-.5rem] cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select"
-              onClick={onCloseSidebar}
-            />
-          </div>
-          <div className="px-4">
-            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
-              PRODUK
-            </p>
-            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
-              PROMOSI
-            </p>
-            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
-              NEWS
-            </p>
-            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
-              BLOG
-            </p>
-            <p className="py-2 cursor-pointer hover:text-slate-600 hover:font-bold focus:font-bold focus:text-slate-600 no-select">
-              LOGIN / REGISTER
-            </p>
-          </div>
-        </div>
-        <div className="h-screen flex-auto" onClick={onOpenSidebar}></div>
-      </div>
-
+    <Template>
       {/* Main Content */}
-      <main className="max-w-7xl m-auto px-3.5 sm:px-5">
+      <main>
         {/* Slider Banner */}
         <div className="relative overflow-hidden">
           {/* Skeleton Slider Banner */}
           <div
             className={
               swiperBanner
-                ? "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] md:mt-10 rounded-lg overflow-hidden"
-                : "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden z-10"
+                ? "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] rounded-lg overflow-hidden"
+                : "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 rounded-lg overflow-hidden z-10"
             }
           ></div>
 
@@ -243,8 +67,8 @@ export default function Home({
             onImagesReady={onInitializedSwiperBanner}
             className={
               swiperBanner
-                ? "mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden"
-                : "mySwiper relative bg-gray-200 mt-2 md:mt-10 rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem]"
+                ? "mySwiper relative bg-gray-200 mt-2 rounded-lg overflow-hidden"
+                : "mySwiper relative bg-gray-200 mt-2 rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem]"
             }
           >
             <SwiperSlide>
@@ -337,7 +161,7 @@ export default function Home({
         </div>
 
         {/* Linebreak Special Price */}
-        <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
+        <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
           <div className="w-full flex justify-center items-center text-slate-500">
             <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
             <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
@@ -370,19 +194,19 @@ export default function Home({
 
         {/* Time Special Price */}
         <div className="flex mt-2 mb-4">
-          <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded no-select">
+          <div className="h-9 w-9 text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">08</p>
           </div>
-          <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded no-select">
+          <div className="h-9 w-9 text-white bg-blue-600 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">01</p>
           </div>
           <div className="flex justify-center items-center mx-2">
             <p className="font-normal text-roboto-bold">:</p>
           </div>
-          <div className="h-9 w-9 text-white bg-blue-600 mr-1 text-slate-600 flex justify-center items-center rounded no-select">
+          <div className="h-9 w-9 text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">33</p>
           </div>
-          <div className="h-9 w-9 text-white bg-blue-600 text-slate-600 flex justify-center items-center rounded no-select">
+          <div className="h-9 w-9 text-white bg-blue-600 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">17</p>
           </div>
         </div>
@@ -422,7 +246,7 @@ export default function Home({
         </div>
 
         {/* Linebreak Produk Terlaris */}
-        <div className="w-full min-h-full my-5 sm:mt-8 lg:my-10 ">
+        <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
           <div className="w-full flex justify-center items-center text-slate-500">
             <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
             <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
@@ -466,24 +290,6 @@ export default function Home({
           ))}
         </div>
       </main>
-
-      {/* Footer */}
-      <div className="mt-10">
-        <div className="max-w-7xl m-auto px-3.5 sm:px-5">
-          <div className="flex justify-center items-center text-slate-500">
-            <p className="text-sm md:text-md lg:text-base">Created by natczh</p>
-            <div className="mx-1"></div>
-            <Link href="http://github.com/natczh">
-              <a target="_blank">
-                <IoLogoGithub className="w-5 md:w-6 lg:w-8 h-5 md:h-6 lg:h-8 " />
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* GAP */}
-      <div className="h-10"></div>
-    </>
+    </Template>
   );
 }
