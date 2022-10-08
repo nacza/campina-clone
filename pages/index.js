@@ -19,12 +19,13 @@ import { BsCartPlus } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
 import hygraphClient, { gql } from "../lib/hygraph-client";
+import { hygraphDummyDataHome } from "@/lib/hygraph-dummy-data";
 
 async function getDataHome() {
-  const { listProductsBestSeller, listProductsFlashSale } =
-    await hygraphClient.request(
+  const hygraphDataHome = () => {
+    return hygraphClient.request(
       gql`
-        query home {
+        query Home {
           listProductsFlashSale: products(first: 4) {
             id
             images {
@@ -45,23 +46,39 @@ async function getDataHome() {
             name
             price
           }
+          listCategories: categories {
+            id
+            name
+            slug
+            images {
+              id
+              fileName
+              url
+            }
+          }
         }
       `
     );
+  };
+  const { listProductsBestSeller, listProductsFlashSale, listCategories } =
+    process.env.FLAG_DEV ? hygraphDummyDataHome() : await hygraphDataHome();
 
   return {
     listProductsFlashSale,
     listProductsBestSeller,
+    listCategories,
   };
 }
 
 export async function getStaticProps() {
-  const { listProductsFlashSale, listProductsBestSeller } = await getDataHome();
+  const { listProductsFlashSale, listProductsBestSeller, listCategories } =
+    await getDataHome();
 
   return {
     props: {
       listProductsFlashSale,
       listProductsBestSeller,
+      listCategories,
     },
   };
 }
@@ -69,6 +86,7 @@ export async function getStaticProps() {
 export default function Home({
   listProductsFlashSale,
   listProductsBestSeller,
+  listCategories,
 }) {
   const [focusSearch, setFocusSearch] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -295,96 +313,26 @@ export default function Home({
             onImagesReady={onInitializedSwiperCategory}
             className="mySwiper2 h-20 sm:h-24 pr-4"
           >
-            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[35px] w-[35px] relative">
-                  <img
-                    className="absolute object-fill"
-                    src="/ice-category-stick.png"
-                    alt="ct"
-                  />
+            {listCategories.map((item, i) => (
+              <SwiperSlide
+                key={item.id}
+                className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300"
+              >
+                <div className="w-full h-full flex flex-col justify-center items-center">
+                  <div className="h-[40px] w-[40px] relative">
+                    <img
+                      className="absolute object-fill"
+                      src={item.images[0].url}
+                      alt={item.images[0].fileName}
+                    />
+                  </div>
+                  <div className="h-2"></div>
+                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-500">
+                    {item.name}
+                  </p>
                 </div>
-                <div className="h-2"></div>
-                <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
-                  Ice Cream Stick
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[35px] w-[35px] relative">
-                  <img
-                    className="absolute object-fill"
-                    src="/ice-category-cup.png"
-                    alt="ct"
-                  />
-                </div>
-                <div className="h-2"></div>
-                <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
-                  Ice Cream Package
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[35px] w-[35px] relative">
-                  <img
-                    className="absolute object-fill"
-                    src="/ice-category-cone.png"
-                    alt="ct"
-                  />
-                </div>
-                <div className="h-2"></div>
-                <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
-                  Ice Cream Stick
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[35px] w-[35px] relative">
-                  <img
-                    className="absolute object-fill"
-                    src="/ice-category-family-pack.png"
-                    alt="ct"
-                  />
-                </div>
-                <div className="h-2"></div>
-                <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
-                  Ice Cream Package
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[35px] w-[35px] relative">
-                  <img
-                    className="absolute object-fill"
-                    src="/ice-category-5l.png"
-                    alt="ct"
-                  />
-                </div>
-                <div className="h-2"></div>
-                <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
-                  Ice Cream Stick
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="slide__category__wrapper rounded-lg cursor-pointer no-select hover:bg-gray-300">
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="h-[35px] w-[35px] relative">
-                  <img
-                    className="absolute object-fill"
-                    src="/ice-category-potong.png"
-                    alt="ct"
-                  />
-                </div>
-                <div className="h-2"></div>
-                <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap px-2 text-center text-slate-600">
-                  Ice Cream Package
-                </p>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
 
