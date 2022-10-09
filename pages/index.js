@@ -99,11 +99,8 @@ export default function Home({
           </Swiper>
         </div>
 
-        {/* Linebreak Special Price */}
-        <LineBreak></LineBreak>
-
         {/* Special Price */}
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex justify-between items-center mt-3 lg:mt-6">
           <div className="flex items-center text-blue-600 cursor-default">
             <p className="text-lg lg:text-xl font-normal">
               <span className="text-roboto-bold">FLASH SALE</span>
