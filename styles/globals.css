@@ -815,16 +815,16 @@ video {
   min-height: 9.5rem;
 }
 
+.min-h-\[2\.25rem\] {
+  min-height: 2.25rem;
+}
+
 .min-h-\[80px\] {
   min-height: 80px;
 }
 
 .min-h-full {
   min-height: 100%;
-}
-
-.min-h-\[2\.25rem\] {
-  min-height: 2.25rem;
 }
 
 .w-full {
