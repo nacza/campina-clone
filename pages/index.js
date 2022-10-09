@@ -122,19 +122,19 @@ export default function Home({
 
         {/* Time Special Price */}
         <div className="flex mt-2 mb-4">
-          <div className="h-9 w-9 text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">08</p>
           </div>
-          <div className="h-9 w-9 text-white bg-blue-600 flex justify-center items-center rounded no-select">
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">01</p>
           </div>
           <div className="flex justify-center items-center mx-2">
             <p className="font-normal text-roboto-bold">:</p>
           </div>
-          <div className="h-9 w-9 text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">33</p>
           </div>
-          <div className="h-9 w-9 text-white bg-blue-600 flex justify-center items-center rounded no-select">
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 flex justify-center items-center rounded no-select">
             <p className="font-normal text-roboto-bold">17</p>
           </div>
         </div>
