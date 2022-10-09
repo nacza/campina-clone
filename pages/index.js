@@ -99,58 +99,6 @@ export default function Home({
           </Swiper>
         </div>
 
-        {/* Special Price */}
-        <div className="w-full flex justify-between items-center mt-3 lg:mt-6">
-          <div className="flex items-center text-blue-600 cursor-default">
-            <p className="text-lg lg:text-xl font-normal">
-              <span className="text-roboto-bold">FLASH SALE</span>
-            </p>
-            <div>
-              <IoIosFlash className="w-10 h-10" />
-            </div>
-          </div>
-
-          <div className="flex items-center text-blue-600">
-            <p className="mr-[2px] hover:cursor-pointer hover:underline hover:underline-offset-4 text-sm md:text-md lg:text-base no-select">
-              Lihat Semua
-            </p>
-            <div>
-              <IoArrowForward className="w-5 h-5" />
-            </div>
-          </div>
-        </div>
-
-        {/* Time Special Price */}
-        <div className="flex mt-2 mb-4">
-          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
-            <p className="font-normal text-roboto-bold">08</p>
-          </div>
-          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 flex justify-center items-center rounded no-select">
-            <p className="font-normal text-roboto-bold">01</p>
-          </div>
-          <div className="flex justify-center items-center mx-2">
-            <p className="font-normal text-roboto-bold">:</p>
-          </div>
-          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
-            <p className="font-normal text-roboto-bold">33</p>
-          </div>
-          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 flex justify-center items-center rounded no-select">
-            <p className="font-normal text-roboto-bold">17</p>
-          </div>
-        </div>
-
-        {/* Product Special Price */}
-        <div className="special-price grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-          {listProductsFlashSale.map((item, i) => (
-            <CardProduct
-              key={item.id}
-              images={item.images[0].url}
-              name={item.name}
-              price={item.price}
-            />
-          ))}
-        </div>
-
         {/* Linebreak Category */}
         <LineBreak>KATEGORI</LineBreak>
 
@@ -209,6 +157,58 @@ export default function Home({
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+
+        {/* Special Price */}
+        <div className="w-full flex justify-between items-center mt-3 lg:mt-6">
+          <div className="flex items-center text-blue-600 cursor-default">
+            <p className="text-lg lg:text-xl font-normal">
+              <span className="text-roboto-bold">FLASH SALE</span>
+            </p>
+            <div>
+              <IoIosFlash className="w-10 h-10" />
+            </div>
+          </div>
+
+          <div className="flex items-center text-blue-600">
+            <p className="mr-[2px] hover:cursor-pointer hover:underline hover:underline-offset-4 text-sm md:text-md lg:text-base no-select">
+              Lihat Semua
+            </p>
+            <div>
+              <IoArrowForward className="w-5 h-5" />
+            </div>
+          </div>
+        </div>
+
+        {/* Time Special Price */}
+        <div className="flex mt-2 mb-4">
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
+            <p className="font-normal text-roboto-bold">08</p>
+          </div>
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 flex justify-center items-center rounded no-select">
+            <p className="font-normal text-roboto-bold">01</p>
+          </div>
+          <div className="flex justify-center items-center mx-2">
+            <p className="font-normal text-roboto-bold">:</p>
+          </div>
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 mr-1 flex justify-center items-center rounded no-select">
+            <p className="font-normal text-roboto-bold">33</p>
+          </div>
+          <div className="px-2 min-h-[2.25rem] min-w-[2.25rem] text-white bg-blue-600 flex justify-center items-center rounded no-select">
+            <p className="font-normal text-roboto-bold">17</p>
+          </div>
+        </div>
+
+        {/* Product Special Price */}
+        <div className="special-price grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+          {listProductsFlashSale.map((item, i) => (
+            <CardProduct
+              key={item.id}
+              images={item.images[0].url}
+              name={item.name}
+              price={item.price}
+            />
+          ))}
         </div>
 
         {/* Linebreak Produk Terlaris */}

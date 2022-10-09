@@ -28,14 +28,16 @@ html {
 
 @media (max-width: 359px) and (max-width: 339px) {
   .special-price,
-  .best-selling {
+  .best-selling,
+  .list-products {
     @apply grid-cols-1 !important;
   }
 }
 
 @media (min-width: 530px) and (max-width: 830px) {
   .special-price,
-  .best-selling {
+  .best-selling,
+  .list-products {
     @apply grid-cols-3 !important;
   }
 }

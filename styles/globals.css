@@ -771,14 +771,6 @@ video {
   aspect-ratio: 1 / 1;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-5 {
-  height: 1.25rem;
-}
-
 .h-20 {
   height: 5rem;
 }
@@ -793,6 +785,14 @@ video {
 
 .h-2 {
   height: 0.5rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-5 {
+  height: 1.25rem;
 }
 
 .h-7 {
@@ -815,12 +815,12 @@ video {
   min-height: 9.5rem;
 }
 
-.min-h-\[2\.25rem\] {
-  min-height: 2.25rem;
-}
-
 .min-h-\[80px\] {
   min-height: 80px;
+}
+
+.min-h-\[2\.25rem\] {
+  min-height: 2.25rem;
 }
 
 .min-h-full {
@@ -831,16 +831,16 @@ video {
   width: 100%;
 }
 
+.w-\[40px\] {
+  width: 40px;
+}
+
 .w-10 {
   width: 2.5rem;
 }
 
 .w-5 {
   width: 1.25rem;
-}
-
-.w-\[40px\] {
-  width: 40px;
 }
 
 .w-7 {
@@ -1058,14 +1058,14 @@ video {
   text-align: center;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-normal {
@@ -1076,6 +1076,11 @@ video {
   font-weight: 700;
 }
 
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -1084,11 +1089,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-slate-500 {
-  --tw-text-opacity: 1;
-  color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
 .text-slate-600 {
@@ -1168,14 +1168,16 @@ html {
 
 @media (max-width: 359px) and (max-width: 339px) {
   .special-price, 
-  .best-selling {
+  .best-selling, 
+  .list-products {
     grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
   }
 }
 
 @media (min-width: 530px) and (max-width: 830px) {
   .special-price, 
-  .best-selling {
+  .best-selling, 
+  .list-products {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
@@ -1333,14 +1335,14 @@ html {
     width: 2rem;
   }
 
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
