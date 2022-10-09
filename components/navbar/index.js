@@ -31,9 +31,9 @@ function Navbar() {
   }
 
   return (
-    <div className="md:mb-10">
+    <div className="sticky top-0 z-20 md:mb-10">
       {/* Navbar */}
-      <div className="bg-white sticky top-0 py-1.5 z-20">
+      <div className="bg-white py-1.5">
         <nav className="nav-header">
           <ul className="nav-header__wrapper hidden md:flex">
             <li className="nav-header__item">
