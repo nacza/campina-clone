@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { IoIosFlash } from "react-icons/io";
-import { IoArrowForward, IoHeartOutline, IoHeart } from "react-icons/io5";
-import { BsCartPlus } from "react-icons/bs";
+import { IoArrowForward } from "react-icons/io5";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper";
 
-import Template from "@/components/template";
-
 import { getDataHome } from "@/lib/data";
 
+import Template from "@/components/template";
+import CardProduct from "@/components/card-product";
+import LineBreak from "@/components/line-break";
+import Image from "next/image";
+
 export async function getStaticProps() {
-  const { listProductsFlashSale, listProductsBestSeller, listCategories } =
-    await getDataHome();
+  const {
+    listProductsFlashSale,
+    listProductsBestSeller,
+    listCategories,
+    listBanners,
+  } = await getDataHome();
 
   return {
     props: {
       listProductsFlashSale,
       listProductsBestSeller,
       listCategories,
+      listBanners,
     },
   };
 }
@@ -28,6 +35,7 @@ export default function Home({
   listProductsFlashSale,
   listProductsBestSeller,
   listCategories,
+  listBanners,
 }) {
   const [swiperBanner, setSwiperBanner] = useState(false);
   const [swiperCategory, setSwiperCategory] = useState(false);
@@ -42,19 +50,17 @@ export default function Home({
 
   return (
     <Template>
-      {/* Main Content */}
       <main>
         {/* Slider Banner */}
-        <div className="relative overflow-hidden">
+        <div className="relative w-full overflow-hidden">
           {/* Skeleton Slider Banner */}
           <div
             className={
               swiperBanner
-                ? "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] rounded-lg overflow-hidden"
-                : "absolute w-full min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem] bg-gray-200 mt-2 rounded-lg overflow-hidden z-10"
+                ? "absolute w-full rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px]"
+                : "absolute w-full bg-gray-200 mt-2 rounded-lg overflow-hidden z-10 min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px]"
             }
           ></div>
-
           <Swiper
             navigation={true}
             loop={true}
@@ -67,41 +73,30 @@ export default function Home({
             onImagesReady={onInitializedSwiperBanner}
             className={
               swiperBanner
-                ? "mySwiper relative bg-gray-200 mt-2 rounded-lg overflow-hidden"
-                : "mySwiper relative bg-gray-200 mt-2 rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[15rem] md:min-h-[18.8rem]"
+                ? "mySwiper relative bg-gray-200 mt-2 rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px]"
+                : "mySwiper relative bg-gray-200 mt-2 rounded-lg overflow-hidden min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px]"
             }
           >
-            <SwiperSlide>
-              <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative no-select">
-                <img
-                  className="absolute sm:relative object-cover h-[100%]"
-                  src="/slide-1.png"
-                  alt="slide-1.png"
+            {listBanners.map((item, i) => (
+              <SwiperSlide
+                key={item.id}
+                className="w-full min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px] no-select"
+              >
+                <Image
+                  alt={item.image.fileName}
+                  src={item.image.url}
+                  objectFit="cover"
+                  layout="fill"
+                  width={1240}
+                  height={300}
                 />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full min-h-[9.5rem] sm:min-h-full flex justify-center items-center relative no-select">
-                <img
-                  className="absolute sm:relative object-cover h-[100%]"
-                  src="/slide-2.png"
-                  alt="slide-2.png"
-                />
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
 
         {/* Linebreak Category */}
-        <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
-          <div className="w-full flex justify-center items-center text-slate-500">
-            <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-            <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
-              KATEGORI
-            </p>
-            <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
-          </div>
-        </div>
+        <LineBreak>KATEGORI</LineBreak>
 
         {/* Slider Subcategory */}
         <div className="relative overflow-hidden">
@@ -161,15 +156,7 @@ export default function Home({
         </div>
 
         {/* Linebreak Special Price */}
-        <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
-          <div className="w-full flex justify-center items-center text-slate-500">
-            <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-            <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
-              PRODUK SPESIAL
-            </p>
-            <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
-          </div>
-        </div>
+        <LineBreak>PRODUK SPESIAL</LineBreak>
 
         {/* Special Price */}
         <div className="w-full flex justify-between items-center">
@@ -214,79 +201,27 @@ export default function Home({
         {/* Product Special Price */}
         <div className="special-price grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
           {listProductsFlashSale.map((item, i) => (
-            <div key={item.id} className="group">
-              <div className="bg-gray-200 relative aspect-square overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
-                <img
-                  className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
-                  src={item.images[0].url}
-                  alt={item.name}
-                />
-              </div>
-              <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-                <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
-                    {item.name}
-                  </p>
-                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
-                    Rp. {item.price}
-                  </p>
-                </div>
-                <div className="h-10"></div>
-                <div className="text-white flex justify-between items-center no-select relative z-10">
-                  <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                    <IoHeartOutline className="text-red-600 h-7 w-7" />
-                  </div>
-                  <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                    <BsCartPlus className="h-7 w-7" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <CardProduct
+              key={item.id}
+              images={item.images[0].url}
+              name={item.name}
+              price={item.price}
+            />
           ))}
         </div>
 
         {/* Linebreak Produk Terlaris */}
-        <div className="w-full min-h-full my-5 sm:my-8 lg:my-10 ">
-          <div className="w-full flex justify-center items-center text-slate-500">
-            <div className="pr-1 h-px w-full bg-slate-400 rounded-lg"></div>
-            <p className="md:text-lg mx-5 flex-none sm:mx-10 font-bold">
-              PRODUK TERLARIS
-            </p>
-            <div className="pl-1 h-px w-full bg-slate-400 rounded-lg"></div>
-          </div>
-        </div>
+        <LineBreak>PRODUK TERLARIS</LineBreak>
 
         {/* Product Best Selling */}
         <div className="best-selling grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
           {listProductsBestSeller.map((item, i) => (
-            <div key={item.id} className="group">
-              <div className="bg-gray-200 relative aspect-square overflow-hidden rounded-t-lg cursor-pointer z-10 no-select">
-                <img
-                  className="absolute object-cover w-full transition-transform hover:scale-[1.05] no-select"
-                  src={item.images[0].url}
-                  alt={item.name}
-                />
-              </div>
-              <div className="py-3 px-3 bg-white shadow-lg overflow-hidden rounded-b-lg">
-                <div className="relative z-10 cursor-pointer text-slate-600 hover:text-blue-600">
-                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
-                    {item.name}
-                  </p>
-                  <p className="text-sm md:text-md lg:text-base text-ellipsis overflow-hidden w-full whitespace-nowrap no-select">
-                    Rp. {item.price}
-                  </p>
-                </div>
-                <div className="h-10"></div>
-                <div className="text-white flex justify-between items-center no-select relative z-10">
-                  <div className="px-3 py-1 text-slate-600 overflow-hidden rounded cursor-pointer hover:bg-gray-200">
-                    <IoHeartOutline className="text-red-600 h-7 w-7" />
-                  </div>
-                  <div className="px-5 sm:px-8 py-1 bg-blue-600 overflow-hidden rounded cursor-pointer">
-                    <BsCartPlus className="h-7 w-7" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <CardProduct
+              key={item.id}
+              images={item.images[0].url}
+              name={item.name}
+              price={item.price}
+            />
           ))}
         </div>
       </main>

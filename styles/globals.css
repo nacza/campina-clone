@@ -1295,6 +1295,50 @@ html {
     min-height: 96px;
   }
 
+  .sm\:min-h-\[9\.5rem\] {
+    min-height: 9.5rem;
+  }
+
+  .sm\:min-h-\[300px\] {
+    min-height: 300px;
+  }
+
+  .sm\:min-h-\[250px\] {
+    min-height: 250px;
+  }
+
+  .sm\:min-h-\[100px\] {
+    min-height: 100px;
+  }
+
+  .sm\:min-h-\[180px\] {
+    min-height: 180px;
+  }
+
+  .sm\:min-h-\[2000px\] {
+    min-height: 2000px;
+  }
+
+  .sm\:min-h-\[200px\] {
+    min-height: 200px;
+  }
+
+  .sm\:min-h-\[190px\] {
+    min-height: 190px;
+  }
+
+  .sm\:min-h-\[185px\] {
+    min-height: 185px;
+  }
+
+  .sm\:min-h-\[17-px\] {
+    min-height: 17-px;
+  }
+
+  .sm\:min-h-\[170px\] {
+    min-height: 170px;
+  }
+
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1335,6 +1379,22 @@ html {
     min-height: 18.8rem;
   }
 
+  .md\:min-h-\[300px\] {
+    min-height: 300px;
+  }
+
+  .md\:min-h-\[250\] {
+    min-height: 250;
+  }
+
+  .md\:min-h-\[250px\] {
+    min-height: 250px;
+  }
+
+  .md\:min-h-\[200px\] {
+    min-height: 200px;
+  }
+
   .md\:w-auto {
     width: auto;
   }
@@ -1363,6 +1423,22 @@ html {
     height: 2rem;
   }
 
+  .lg\:min-h-\[300px\] {
+    min-height: 300px;
+  }
+
+  .lg\:min-h-\[230px\] {
+    min-height: 230px;
+  }
+
+  .lg\:min-h-\[200px\] {
+    min-height: 200px;
+  }
+
+  .lg\:min-h-\[250px\] {
+    min-height: 250px;
+  }
+
   .lg\:w-8 {
     width: 2rem;
   }
@@ -1375,5 +1451,11 @@ html {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:min-h-\[300px\] {
+    min-height: 300px;
   }
 }
