@@ -11,7 +11,9 @@ import { getDataHome } from "@/lib/data";
 import Template from "@/components/template";
 import CardProduct from "@/components/card-product";
 import LineBreak from "@/components/line-break";
+
 import Image from "next/image";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const {
@@ -80,16 +82,18 @@ export default function Home({
             {listBanners.map((item, i) => (
               <SwiperSlide
                 key={item.id}
-                className="w-full min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px] no-select"
+                className="w-full min-h-[9.5rem] sm:min-h-[170px] md:min-h-[200px] lg:min-h-[250px] xl:min-h-[300px] no-select cursor-pointer"
               >
-                <Image
-                  alt={item.image.fileName}
-                  src={item.image.url}
-                  objectFit="cover"
-                  layout="fill"
-                  width={1240}
-                  height={300}
-                />
+                <Link href={`/${item.linkRedirect}`}>
+                  <Image
+                    alt={item.image.fileName}
+                    src={item.image.url}
+                    objectFit="cover"
+                    layout="fill"
+                    width={1240}
+                    height={300}
+                  />
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
