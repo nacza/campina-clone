@@ -1,0 +1,7 @@
+.shadow-filter {
+  box-shadow: rgb(49 53 59 / 12%) 0px 1px 6px 0px;
+}
+
+.border-top-filter {
+  border-top: 1px solid #e5e7e9;
+}

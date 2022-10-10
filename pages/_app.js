@@ -12,6 +12,9 @@ import "../styles/slideshow.css";
 // No Selector
 import "../styles/no_select.css";
 
+// Border Top Filter on Products
+import "../styles/utils.css";
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
